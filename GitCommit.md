@@ -28,7 +28,7 @@
 
 `git reset HEAD filename`: 撤销暂存区修改 ，拉取最近一次提交的版本库中的对应文件到暂存区（HEAD是log中的commit记录的最新记录的id）
 
-
+`git log 配合 git reset commit_id` : 回退到指定版本，但是不会删除本地内容
 
 
 
