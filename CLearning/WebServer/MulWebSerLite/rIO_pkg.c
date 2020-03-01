@@ -1,14 +1,28 @@
-/*$begin rIO_pkg.c*/
+/* $begin rIO_pkg.c */
 
 #include "head.h"
 
-/*********************************************************************
- * The Rio package - robust I/O functions
- **********************************************************************/
+/******************************
+ * robust I/O 健壮的I/O包
+ ******************************/
 /*
- * rio_readn - robustly read n bytes (unbuffered)
- */
-/* $begin rio_readn */
+* robust I/O的特点
+* 1-无缓冲的输入输出函数：直接在内存和文件间传送数据，这在二进制数据在网络和内存数据传输中十分重要
+* 2-带缓冲的输入函数：高效的从文件中读取文本行和二进制数据
+*/
+
+/*
+* 
+* rio_readn()函数
+*
+* Usage:
+*   从文件描述符为fd的当前文件位置复制最多n个字节到内存位置usrbuf
+*
+* Return:
+*   0-调用成功则返回实际传送的字节数量
+*   1-调用失败返回0或-1
+* 
+*/
 ssize_t rio_readn(int fd, void *usrbuf, size_t n) 
 {
     size_t nleft = n;
@@ -17,24 +31,31 @@ ssize_t rio_readn(int fd, void *usrbuf, size_t n)
 
     while (nleft > 0) {
 	if ((nread = read(fd, bufp, nleft)) < 0) {
-	    if (errno == EINTR) /* Interrupted by sig handler return */
-		nread = 0;      /* and call read() again */
+	    if (errno == EINTR) 
+		nread = 0;      
 	    else
-		return -1;      /* errno set by read() */ 
+		return -1;       
 	} 
 	else if (nread == 0)
-	    break;              /* EOF */
+	    break;              
 	nleft -= nread;
 	bufp += nread;
     }
-    return (n - nleft);         /* return >= 0 */
+    return (n - nleft);         
 }
-/* $end rio_readn */
 
 /*
- * rio_writen - robustly write n bytes (unbuffered)
- */
-/* $begin rio_writen */
+* 
+* rio_writen()函数
+*
+* Usage:
+*   从内存位置usrbuf复制最多n个字节到文件描述符为fd的当前文件位置
+*
+* Return:
+*   0-调用成功则返回实际传送的字节数量
+*   1-调用失败返回0或-1
+* 
+*/
 ssize_t rio_writen(int fd, void *usrbuf, size_t n) 
 {
     size_t nleft = n;
@@ -43,46 +64,49 @@ ssize_t rio_writen(int fd, void *usrbuf, size_t n)
 
     while (nleft > 0) {
 	if ((nwritten = write(fd, bufp, nleft)) <= 0) {
-	    if (errno == EINTR)  /* Interrupted by sig handler return */
-		nwritten = 0;    /* and call write() again */
+	    if (errno == EINTR)  
+		nwritten = 0;    
 	    else
-		return -1;       /* errno set by write() */
+		return -1;       
 	}
 	nleft -= nwritten;
 	bufp += nwritten;
     }
     return n;
 }
-/* $end rio_writen */
 
 
-/* 
- * rio_read - This is a wrapper for the Unix read() function that
- *    transfers min(n, rio_cnt) bytes from an internal buffer to a user
- *    buffer, where n is the number of bytes requested by the user and
- *    rio_cnt is the number of unread bytes in the internal buffer. On
- *    entry, rio_read() refills the internal buffer via a call to
- *    read() if the internal buffer is empty.
- */
-/* $begin rio_read */
+/*
+* 
+* rio_read()函数
+*
+* Usage:
+*   rio_read是对Unix I/O中的read()函数的封装，它将最小(n，rio_cnt)字节从内部缓冲区传输到用户缓冲区，
+*   其中n是用户请求的字节数，rio_cnt是内部缓冲区中未读的字节数。
+*   进入时，如果内部缓冲区为空，rio_read()通过调用read()来重新填充内部缓冲区。
+*
+* Return:
+*   0-调用成功则返回实际传送的字节数量
+*   1-调用失败返回0或-1
+* 
+*/
 static ssize_t rio_read(rio_t *rp, char *usrbuf, size_t n)
 {
     int cnt;
 
-    while (rp->rio_cnt <= 0) {  /* Refill if buf is empty */
+    while (rp->rio_cnt <= 0) { 
 	rp->rio_cnt = read(rp->rio_fd, rp->rio_buf, 
 			   sizeof(rp->rio_buf));
 	if (rp->rio_cnt < 0) {
-	    if (errno != EINTR) /* Interrupted by sig handler return */
+	    if (errno != EINTR) 
 		return -1;
 	}
-	else if (rp->rio_cnt == 0)  /* EOF */
+	else if (rp->rio_cnt == 0)  
 	    return 0;
 	else 
-	    rp->rio_bufptr = rp->rio_buf; /* Reset buffer ptr */
+	    rp->rio_bufptr = rp->rio_buf; 
     }
 
-    /* Copy min(n, rp->rio_cnt) bytes from internal buf to user buf */
     cnt = n;          
     if (rp->rio_cnt < n)   
 	cnt = rp->rio_cnt;
@@ -91,24 +115,38 @@ static ssize_t rio_read(rio_t *rp, char *usrbuf, size_t n)
     rp->rio_cnt -= cnt;
     return cnt;
 }
-/* $end rio_read */
+
 
 /*
- * rio_readinitb - Associate a descriptor with a read buffer and reset buffer
- */
-/* $begin rio_readinitb */
+* 
+* rio_readinitb()函数
+*
+* Usage:
+*   将文件描述符fd和地址rp处的一个类型为rio_t的读缓冲区联系起来
+*
+* Return:
+* 
+*/
 void rio_readinitb(rio_t *rp, int fd) 
 {
     rp->rio_fd = fd;  
     rp->rio_cnt = 0;  
     rp->rio_bufptr = rp->rio_buf;
 }
-/* $end rio_readinitb */
+
 
 /*
- * rio_readnb - Robustly read n bytes (buffered)
- */
-/* $begin rio_readnb */
+* 
+* rio_readnb()函数
+*
+* Usage:
+*   从文件地址rp最多读n个字节到内存位置usrbuf
+*
+* Return:
+*   0-调用成功则返回实际传送的字节数量
+*   1-调用失败返回0或-1
+*
+*/
 ssize_t rio_readnb(rio_t *rp, void *usrbuf, size_t n) 
 {
     size_t nleft = n;
@@ -117,20 +155,27 @@ ssize_t rio_readnb(rio_t *rp, void *usrbuf, size_t n)
     
     while (nleft > 0) {
 	if ((nread = rio_read(rp, bufp, nleft)) < 0) 
-            return -1;          /* errno set by read() */ 
+            return -1;           
 	else if (nread == 0)
-	    break;              /* EOF */
+	    break;              
 	nleft -= nread;
 	bufp += nread;
     }
-    return (n - nleft);         /* return >= 0 */
+    return (n - nleft);         
 }
-/* $end rio_readnb */
 
-/* 
- * rio_readlineb - robustly read a text line (buffered)
- */
-/* $begin rio_readlineb */
+/*
+* 
+* rio_readlineb()函数
+*
+* Usage:
+*   从文件地址rp读出下一个文本行并复制到内存位置usrbuf，并且用NULL字符结束文本行
+*
+* Return:
+*   0-调用成功则返回实际传送的字节数量
+*   1-调用失败返回0或-1
+*
+*/
 ssize_t rio_readlineb(rio_t *rp, void *usrbuf, size_t maxlen) 
 {
     int n, rc;
@@ -145,20 +190,32 @@ ssize_t rio_readlineb(rio_t *rp, void *usrbuf, size_t maxlen)
             }
 	} else if (rc == 0) {
 	    if (n == 1)
-		return 0; /* EOF, no data read */
+		return 0; 
 	    else
-		break;    /* EOF, some data was read */
+		break;    
 	} else
-	    return -1;	  /* Error */
+	    return -1;	 
     }
     *bufp = 0;
     return n-1;
 }
-/* $end rio_readlineb */
 
-/**********************************
- * Wrappers for robust I/O routines
- **********************************/
+
+/****************************
+ * 对robust I/O库的进一步封装
+ ****************************/
+/*
+* 
+* Rio_readn()函数
+*
+* Usage:
+*   对rio_readn()的封装，从文件描述符为fd的当前文件位置复制最多nbytes个字节到内存位置usrbuf
+*
+* Return:
+*   0-调用成功则返回实际传送的字节数量
+*   1-调用失败返回错误信息
+* 
+*/
 ssize_t Rio_readn(int fd, void *ptr, size_t nbytes) 
 {
     ssize_t n;
@@ -168,17 +225,50 @@ ssize_t Rio_readn(int fd, void *ptr, size_t nbytes)
     return n;
 }
 
+/*
+* 
+* Rio_writen()函数
+*
+* Usage:
+*   对rio_writen()的封装，从内存位置usrbuf复制最多n个字节到文件描述符为fd的当前文件位置
+*
+* Return:
+*   1-无返回值但是调用失败返回错误信息
+* 
+*/
 void Rio_writen(int fd, void *usrbuf, size_t n) 
 {
     if (rio_writen(fd, usrbuf, n) != n)
 	unix_error("Rio_writen error");
 }
 
+/*
+* 
+* Rio_readinitb()函数
+*
+* Usage:
+*   对rio_readinitb()的封装，将文件描述符fd和地址rp处的一个类型为rio_t的读缓冲区联系起来
+*
+* Return:
+* 
+*/
 void Rio_readinitb(rio_t *rp, int fd)
 {
     rio_readinitb(rp, fd);
 } 
 
+/*
+* 
+* Rio_readnb()函数
+*
+* Usage:
+*   对rio_readnb()的封装，从文件地址rp最多读n个字节到内存位置usrbuf
+*
+* Return:
+*   0-调用成功则返回实际传送的字节数量
+*   1-调用失败返回错误信息
+*
+*/
 ssize_t Rio_readnb(rio_t *rp, void *usrbuf, size_t n) 
 {
     ssize_t rc;
@@ -188,6 +278,18 @@ ssize_t Rio_readnb(rio_t *rp, void *usrbuf, size_t n)
     return rc;
 }
 
+/*
+* 
+* Rio_readlineb()函数
+*
+* Usage:
+*   对rio_readlineb()的封装，从文件地址rp读出下一个文本行并复制到内存位置usrbuf，并且用NULL字符结束文本行
+*
+* Return:
+*   0-调用成功则返回实际传送的字节数量
+*   1-调用失败返回错误信息
+*
+*/
 ssize_t Rio_readlineb(rio_t *rp, void *usrbuf, size_t maxlen) 
 {
     ssize_t rc;
@@ -197,4 +299,4 @@ ssize_t Rio_readlineb(rio_t *rp, void *usrbuf, size_t maxlen)
     return rc;
 } 
 
-/*$end rIO_pkg.c*/
+/* $end rIO_pkg.c */
