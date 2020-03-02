@@ -1,5 +1,5 @@
 /* $begin pro_ctrl_wra.c */
-#include "head.h"
+#include "general.h"
 
 /*******************
  * 进程控制函数封装

@@ -1,5 +1,5 @@
-/*$begin unixIO_wra.c*/
-#include "head.h"
+/* $begin unixIO_wra.c */
+#include "general.h"
 
 /********************************
  * Unix I/O封装
@@ -177,4 +177,4 @@ void Fstat(int fd, struct stat *buf)
 	unix_error("Fstat error");
 }
 
-/*$end unixIO_wra.c*/
+/* $end unixIO_wra.c */

@@ -1,6 +1,6 @@
 /* $begin CS_helper_funcs.c */
 
-#include "head.h"
+#include "general.h"
 
 /************************
  * 套接字接口的辅助函数

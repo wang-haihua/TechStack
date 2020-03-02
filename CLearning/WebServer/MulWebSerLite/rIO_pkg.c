@@ -1,6 +1,6 @@
 /* $begin rIO_pkg.c */
 
-#include "head.h"
+#include "general.h"
 
 /******************************
  * robust I/O 健壮的I/O包

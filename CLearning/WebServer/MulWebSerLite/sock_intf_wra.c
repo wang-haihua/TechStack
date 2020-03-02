@@ -1,6 +1,6 @@
-/*$begin sock_intf_wra.c*/
+/* $begin sock_intf_wra.c */
 
-#include "head.h"
+#include "general.h"
 
 /******************** 
  * 套接字接口函数封装
@@ -125,4 +125,4 @@ void Connect(int sockfd, struct sockaddr *serv_addr, int addrlen)
 	unix_error("Connect error");
 }
 
-/*$end sock_intf_wra.c*/
+/* $end sock_intf_wra.c */

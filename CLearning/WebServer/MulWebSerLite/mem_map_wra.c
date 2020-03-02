@@ -1,5 +1,5 @@
 /* $begin mem_map_wra.c */
-#include "head.h"
+#include "general.h"
 
 /******************
  * 内存映射函数封装
