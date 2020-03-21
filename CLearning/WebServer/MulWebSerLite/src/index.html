@@ -6,7 +6,7 @@
 		<meta name="author" content="">
 		<meta name="keyword" content=" template, html5, css3, bootstrap4">
 		<meta name="description" content="HTML5 and CSS3 Template Based on Bootstrap 4">
-		<title>I'm Stisla</title>
+		<title>A Lite WebServer</title>
 		<link rel="stylesheet" href="ionicons/css/ionicons.min.css">
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="sweetalert/dist/sweetalert.css">
@@ -15,7 +15,8 @@
 
 	<body>
 		<nav class="navbar navbar-expand-lg main-navbar">
-			<div class="container-fluid">			
+			<div class="container-fluid">
+			<!--
 			  <a class="navbar-brand" href="#">
 			  	<img src="img/logo-light.png" alt="Logo">
 			  </a>
@@ -24,6 +25,7 @@
 			    	<i class="ion-navicon"></i>
 			    </span>
 			  </button>
+			-->
 			  <div class="collapse navbar-collapse" id="navbarNav">
 				  <div class="mr-auto"></div>
 			    <ul class="navbar-nav">
@@ -31,30 +33,39 @@
 			        <a class="nav-link smooth-link" href="#hero">Home</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link smooth-link" href="#features">Stisla's Features</a>
+			        <a class="nav-link smooth-link" href="#features">The Docs</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link smooth-link" href="#blog">Blog</a>
+			        <a class="nav-link smooth-link" href="#blog">Key Tech</a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link smooth-link" href="#project">Project</a>
+			        <a class="nav-link smooth-link" href="#project">Impl</a>
 			      </li>
-			    </ul>
+				</ul>
+				<!--
 			    <form class="form-inline">
 				    <a href="#contact" class="btn smooth-link align-middle btn-primary">Need Help?</a>
-			    </form>
+				</form>
+				-->
 			  </div>
 		  </div>
 		</nav>
 		<section class="hero bg-overlay" id="hero" data-bg="img/hero.jpeg">
 			<div class="text">
+				<!--
 				<p class="lead">Fully responsive HTML5 &amp; CSS3 template</p>
-				<h1>I'm <span class="bold">stisla</span>, based on <span class="bold">Bootstrap 4</span>.</h1>
+				-->
+				<p>
+					Copyright &copy; 2020 Wang Haihua
+				</p>
+				<h1>A <span class="bold">WebServer</span> based on <span class="bold">IO Multiplexing</span>.</h1>
 				<div class="cta">
-					<a href="#features" class="btn btn-primary smooth-link">Get Started</a>
+					<a href="#features" class="btn btn-primary smooth-link">开始了解它</a>
+					<!--
 					<div class="link">						
 						<a href="#">Under the MIT License</a>
 					</div>
+					-->
 				</div>
 			</div>
 		</section>
@@ -62,36 +73,35 @@
 		<section class="padding" id="features">
 			<div class="container">
 				<div class="row">
+					<div class="col-12 col-md-4 col-sm-12" style="flex: 0 0 50%; max-width: 50;">
+						<div class="list-item">
+							<div class="icon">
+								<i class="ion-paintbrush"></i>
+							</div>
+							<div class="desc">
+								<h2>论文文档</h2>
+								<p>
+									介绍这个基于I/O多路复用的并发Web服务器从无到有过程的论文文档。包括关键技术分析与研究，Web服务器实现过程和Web服务器的功能测试等内容
+								</p>
+								<a href="#" class="more">Learn More</a>
+							</div>
+						</div>
+					</div>
 					<div class="col-12 col-md-4 col-sm-12">
 						<div class="list-item">
 							<div class="icon">
 								<i class="ion-code"></i>
 							</div>
 							<div class="desc">
-								<h2>Based on Bootstrap 4</h2>
+								<h2>关键源码</h2>
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore.
+									在我的Web服务器开发过程中，使用的关键技术的实现的相关源码。主要包含Web服务器处理HTTP事务，实现动态内容服务以及抗并发能力的实现等源码
 								</p>
 								<a href="#" class="more">Learn More</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-md-4 col-sm-12">
-						<div class="list-item">
-							<div class="icon">
-								<i class="ion-social-github"></i>
-							</div>
-							<div class="desc">
-								<h2>Open Source</h2>
-								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore.
-								</p>
-								<a href="#" class="more">Learn More</a>
-							</div>
-						</div>
-					</div>
+					<!--
 					<div class="col-12 col-md-4 col-sm-12">
 						<div class="list-item no-spacing">
 							<div class="icon">
@@ -107,65 +117,48 @@
 							</div>
 						</div>
 					</div>
+					-->
 				</div>
 			</div>
 		</section>
 
 		<section class="padding bg-grey" id="blog">
 			<div class="container">
-				<h2 class="section-title">We Blog Sometimes</h2>
-				<p class="section-lead text-muted">We wrote some articles about whatever was on our heads and most people liked it.</p>
+				<h2 class="section-title">关键技术点</h2>
+				<p class="section-lead text-muted">主要介绍了Web服务器的工作原理，以及实现网络通信、动态内容服务和抗并发能力实现的基本原理等内容。</p>
 				<div class="section-body">
 					<div class="row col-spacing">
 						<div class="col-12 col-md-6 col-lg-4">
 							<article class="card">
 							  <img class="card-img-top" src="img/news/img01.jpg" alt="Article Image">
 							  <div class="card-body">
+								  <!--
 								  <div class="card-subtitle mb-2 text-muted">by <a href="#">John Doe</a> on August 10, 2017</div>
-							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">Duis aute irure dolor in reprehenderit in voluptate</a></h4>
-							    <p class="card-text">Mauris eu eros in metus elementum porta eget sed ligula. Praesent consequat, ipsum molestie pellentesque venenatis.</p>
-							    <div class="text-right">						    	
+								  -->
+							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">客户端/服务器编程模型</a></h4>
+							    <p class="card-text">这个模型由一个或多个客户端进程和一个服务器进程组成。客户端向服务器请求服务，而服务器则负责管理各种资源并根据客户端的请求通过对应的操作为客户端提供服务。</p>
+								<!--
+								<div class="text-right">						    	
 								    <a href="#" class="card-more" data-toggle="read" data-id="1">Read More <i class="ion-ios-arrow-right"></i></a>
-							    </div>
+								</div>
+								-->
 						    </div>
 						  </article>
 					  </div>
 					  <div class="col-12 col-md-6 col-lg-4">
-							<article class="card">
-							  <img class="card-img-top" src="img/news/img04.jpg" alt="Article Image">
-							  <div class="card-body">
-								  <div class="card-subtitle mb-2 text-muted">by <a href="#">John Doe</a> on August 10, 2017</div>
-							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">Velit esse cillum dolore eu blos siur dropsida wedor</a></h4>
-							    <p class="card-text">Mauris eu eros in metus elementum porta eget sed ligula. Praesent consequat, ipsum molestie pellentesque venenatis.</p>
-							    <div class="text-right">						    	
-								    <a href="#" class="card-more" data-toggle="read" data-id="1">Read More <i class="ion-ios-arrow-right"></i></a>
-							    </div>
-						    </div>
-						  </article>
-						</div>
-						<div class="col-12 col-md-6 col-lg-4">
 							<article class="card">
 							  <img class="card-img-top" src="img/news/img02.jpg" alt="Article Image">
 							  <div class="card-body">
+								  <!--
 								  <div class="card-subtitle mb-2 text-muted">by <a href="#">John Doe</a> on August 10, 2017</div>
-							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">Excepteur sint as occaecat dros cupidatat non proident los</a></h4>
-							    <p class="card-text">Mauris eu eros in metus elementum porta eget sed ligula. Praesent consequat, ipsum molestie pellentesque venenatis.</p>
-							    <div class="text-right">						    	
+								  -->
+							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">Web服务器工作原理</a></h4>
+							    <p class="card-text">一个服务器进程和远程的客户端进程进行通信时，首先需要使用套接字接口与客户端建立连接，然后根据特定传输协议处理请求并进行操作资源，最后将处理结果作为响应内容发送出去。</p>
+							    <!--
+								<div class="text-right">						    	
 								    <a href="#" class="card-more" data-toggle="read" data-id="1">Read More <i class="ion-ios-arrow-right"></i></a>
-							    </div>
-						    </div>
-						  </article>
-					  </div>
-					  <div class="col-12 col-md-6 col-lg-4">
-							<article class="card">
-							  <img class="card-img-top" src="img/news/img05.jpg" alt="Article Image">
-							  <div class="card-body">
-								  <div class="card-subtitle mb-2 text-muted">by <a href="#">John Doe</a> on August 10, 2017</div>
-							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">Sunt in ado culpa qui officia deserunt mollit anim id</a></h4>
-							    <p class="card-text">Mauris eu eros in metus elementum porta eget sed ligula. Praesent consequat, ipsum molestie pellentesque venenatis.</p>
-							    <div class="text-right">						    	
-								    <a href="#" class="card-more" data-toggle="read" data-id="1">Read More <i class="ion-ios-arrow-right"></i></a>
-							    </div>
+								</div>
+								-->
 						    </div>
 						  </article>
 						</div>
@@ -173,12 +166,50 @@
 							<article class="card">
 							  <img class="card-img-top" src="img/news/img03.jpg" alt="Article Image">
 							  <div class="card-body">
+								  <!--
 								  <div class="card-subtitle mb-2 text-muted">by <a href="#">John Doe</a> on August 10, 2017</div>
-							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">Incididunt ut labore et labore dolore magna aliqua lorem</a></h4>
-							    <p class="card-text">Mauris eu eros in metus elementum porta eget sed ligula. Praesent consequat, ipsum molestie pellentesque venenatis.</p>
-							    <div class="text-right">						    	
+								  -->
+							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">套接字接口实现网络通信</a></h4>
+							    <p class="card-text">套接字接口是一组基于TCP/IP网络协议的API，在操作系统内核中它被实现为一组系统调用。服务器和客户端混合使用这一组系统调用来实现网络连接的建立和数据的传输。</p>
+							    <!--
+								<div class="text-right">						    	
 								    <a href="#" class="card-more" data-toggle="read" data-id="1">Read More <i class="ion-ios-arrow-right"></i></a>
-							    </div>
+								</div>
+								-->
+						    </div>
+						  </article>
+					  </div>
+					  <div class="col-12 col-md-6 col-lg-4">
+							<article class="card">
+							  <img class="card-img-top" src="img/news/img04.jpg" alt="Article Image">
+							  <div class="card-body">
+								  <!--
+								  <div class="card-subtitle mb-2 text-muted">by <a href="#">John Doe</a> on August 10, 2017</div>
+								  -->
+							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">CGI实现动态内容服务</a></h4>
+							    <p class="card-text">当Web服务器收到一个与CGI程序有关的动态内容请求时，它将创建子进程来调用指定的CGI程序来解析该动态内容请求并执行相关程序完成请求处理工作，并最终生成HTML文件返送给客户端。</p>
+							    <!--
+								<div class="text-right">						    	
+								    <a href="#" class="card-more" data-toggle="read" data-id="1">Read More <i class="ion-ios-arrow-right"></i></a>
+								</div>
+								-->
+						    </div>
+						  </article>
+						</div>
+						<div class="col-12 col-md-6 col-lg-4">
+							<article class="card">
+							  <img class="card-img-top" src="img/news/img05.jpg" alt="Article Image">
+							  <div class="card-body">
+								  <!--
+								  <div class="card-subtitle mb-2 text-muted">by <a href="#">John Doe</a> on August 10, 2017</div>
+								  -->
+							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">I/O多路复用实现并发处理</a></h4>
+							    <p class="card-text">使用select函数实现I/O多路复用的Web服务器，调用select将请求处理线程挂起，并不断轮询标准输入和监听套接字描述符是否可读，一旦可读则读取数据。这种挂起的方式实现同时响应多个I/O请求。</p>
+							    <!--
+								<div class="text-right">						    	
+								    <a href="#" class="card-more" data-toggle="read" data-id="1">Read More <i class="ion-ios-arrow-right"></i></a>
+								</div>
+								-->
 						    </div>
 						  </article>
 					  </div>
@@ -186,18 +217,23 @@
 							<article class="card">
 							  <img class="card-img-top" src="img/news/img06.jpg" alt="Article Image">
 							  <div class="card-body">
+								  <!--
 								  <div class="card-subtitle mb-2 text-muted">by <a href="#">John Doe</a> on August 10, 2017</div>
+								  -->
 							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">Ut enim ad minim veniam quis nostrud enim ad kruv</a></h4>
-							    <p class="card-text">Mauris eu eros in metus elementum porta eget sed ligula. Praesent consequat, ipsum molestie pellentesque venenatis.</p>
-							    <div class="text-right">						    	
+							    <p class="card-text">Mauris eu eros in metus elementum porta eget sed ligula. Praesent consequat, ipsum molestie pellentesque venenatis. Praesent consequat.</p>
+							    <!--
+								<div class="text-right">						    	
 								    <a href="#" class="card-more" data-toggle="read" data-id="1">Read More <i class="ion-ios-arrow-right"></i></a>
-							    </div>
+								</div>
+								-->
 						    </div>
 						  </article>
 						</div>
 					</div>
 				</div>
 
+				<!--
 				<div class="row align-items-center mt-5">
 					<div class="col-12 col-md-6">
 						<h2>Don't miss our article</h2>
@@ -210,27 +246,25 @@
 						</form>
 					</div>
 				</div>
+				-->
 			</div>
 		</section>
-		<div class="tlinks">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
 
 		<section class="bg-overlay padding" id="project" data-bg="img/projects.jpeg">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-12 col-md-6">
-						<figure class="projects-picture">
-							<img src="img/youzhang.png" alt="Youzhang">
-						</figure>
+						<video width="500" height="380" controls>
+							<source src="D:\Grounded\TechnicalRoute\CLearning\WebServer\MulWebSerLite\src\video.mp4">
+						</video>
 					</div>
 					<div class="col-12 col-md-6">
 						<div class="projects-details">
-							<div class="projects-badge">
-								Featured
-							</div>
-							<h2 class="projects-title">Youzhang - Ionic 3 Catalogue Template</h2>
+							<h2 class="projects-title">Web服务器功能测试</h2>
 							<p class="projects-description">
-								Youzhang is an iconic template catalog 3. This ionic template uses version 3 and uses the latest feature of ionic v3 that is Lazy Loading. With Ionic version 3 and Lazy Loading you don’t have to define all the components in the app.module.ts file and your hybrid app will get more native and it will make the app performance better.
+								这个Web服务器实现了传统Web服务器的基本功能，能够提供静态内容服务，另外也扩展了使用CGI标准实现的动态内容服务和基于I/O多路复用的抗并发能力。为了测试这些功能，我使用telnet来测试这个Web服务器的网络通信能力；通过自制的这个包含文本、图片和视频等各种内容组成的HTML页面来展示这个Web服务器提供静态内容服务的能力；使用一个简单的加法计算CGI程序来测试服务器提供动态内容服务的能力；最后编写了一个不断创建子进程访问Web服务器的测试程序来测试服务器的抗并发能力。
 							</p>
+							<!--
 							<div class="projects-cta">
 								<a href="#" class="btn btn-primary" target="_blank">
 									Buy Now
@@ -239,43 +273,81 @@
 									More Products
 								</a>
 							</div>
+							-->
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
+		<section class="padding" id="implment">
+			<div class="container">
+				<p class="section-lead text-muted">Web服务器的静态内容服务、动态内容服务和抗并发能力的测试结果。</p>
+				<div class="section-body">
+					<div class="row col-spacing">
+						<div class="col-12 col-md-6 col-lg-4">
+							<article class="card">
+							  <img class="card-img-top" src="img/news/img01.jpg" alt="Article Image">
+							  <div class="card-body">
+							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">客户端/服务器编程模型</a></h4>
+							    <p class="card-text">这个模型由一个或多个客户端进程和一个服务器进程组成。客户端向服务器请求服务，而服务器则负责管理各种资源并根据客户端的请求通过对应的操作为客户端提供服务。</p>
+						    </div>
+						  </article>
+					  </div>
+					  <div class="col-12 col-md-6 col-lg-4">
+							<article class="card">
+							  <img class="card-img-top" src="img/news/img02.jpg" alt="Article Image">
+							  <div class="card-body">
+							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">Web服务器工作原理</a></h4>
+							    <p class="card-text">一个服务器进程和远程的客户端进程进行通信时，首先需要使用套接字接口与客户端建立连接，然后根据特定传输协议处理请求并进行操作资源，最后将处理结果作为响应内容发送出去。</p>
+						    </div>
+						  </article>
+						</div>
+						<div class="col-12 col-md-6 col-lg-4">
+							<article class="card">
+							  <img class="card-img-top" src="img/news/img03.jpg" alt="Article Image">
+							  <div class="card-body">
+							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">套接字接口实现网络通信</a></h4>
+							    <p class="card-text">套接字接口是一组基于TCP/IP网络协议的API，在操作系统内核中它被实现为一组系统调用。服务器和客户端混合使用这一组系统调用来实现网络连接的建立和数据的传输。</p>
+						    </div>
+						  </article>
+					  </div>
+			</div>
+		</section>
+
 		<section class="padding bg-grey" id="contact">
 			<div class="container">
-				<h2 class="section-title text-center">Contact Us</h2>
+				<h2 class="section-title text-center">动态内容服务</h2>
+				<!--
 				<p class="section-lead text-center text-muted">Send us your inquiry, we will help you and reply as soon as possible</p>
+				-->
 				<div class="section-body">				
 					<div class="row col-spacing">
+						<div></div>
 						<div class="col-12 col-md-5">
-							<p class="contact-text">You can send us something like a question or project, we are open 09:00 to 17:00.</p>
-							<ul class="contact-icon">
-								<li><i class="ion ion-ios-telephone"></i> <div>+6212345123</div></li>
-								<li><i class="ion ion-ios-email"></i> <div>hi@kodinger.com</div></li>
-							</ul>
-							
+							<br>
+							<p class="contact-text" style="margin-left: 100px;">1.在第一行两个输入框输入两个自然数<br>2.在第二行输入运算符号<br>3.点击“提交”按钮，请求服务</p>
 						</div>
-						<div class="col-12 col-md-7">
-							<form class="contact row" id="contact-form">
+						
+						<div class="col-12 col-md-7" >
+							<form class="contact row" id="contact-form" align="center">
 								<div class="form-group col-6">
-									<input type="text" class="form-control" placeholder="Name" name="name" required="">
+									<input type="text" class="form-control" placeholder="FirstNumber" name="firstNumber" required="">
 								</div>
 								<div class="form-group col-6">
-									<input type="email" class="form-control" placeholder="Email" name="email" required="">
+									<input type="text" class="form-control" placeholder="SecondNumber" name="secondNumber" required="">
 								</div>
 								<div class="form-group col-12">
-									<input type="text" class="form-control" placeholder="Subject" name="subject" required="">
+									<input type="text" class="form-control" placeholder="Operation" name="operation" required="">
 								</div>
+								<!--
 								<div class="form-group col-12">
 									<textarea class="form-control" placeholder="Message" name="message" required></textarea>
 								</div>
+								-->
 								<div class="form-group col-12 mt-2">
 									<button class="btn btn-primary">
-										Send Message
+										Submit Request
 									</button>
 								</div>
 							</form>
@@ -284,35 +356,6 @@
 				</div>
 			</div>
 		</section>
-
-		<section class="callout">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-12 col-md-8 text">
-						<h3>Start your project with this awesome template</h3>
-					</div>
-					<div class="col-12 col-md-4 cta">
-						<a href="#" class="btn btn-outline-primary">
-							Download Now
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<footer>
-			<div class="container">
-				<figure>
-					<img src="img/logo-light.png" alt="Logo">
-				</figure>
-				<p>
-					Copyright &copy; 2017 Your Company
-				</p>
-				<p>
-					More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-				</p>
-			</div>
-		</footer>
 
 		<script src="js/jquery.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
