@@ -29,12 +29,14 @@ void handle_http_trans(int fd)
 	Rio_readinitb(&rio, fd);
 	Rio_readlineb(&rio, buf, MAXLINE);
 	sscanf(buf , "%s %s %s", method, uri, version);
-	if (strcasecmp(method, "GET"))
+	if (!(strcasecmp(method, "GET") == 0 || strcasecmp(method, "HEAD") == 0 || strcasecmp(method, "POST") == 0))
 	{
 		report_error(fd, method, "501", "Not Implemented", "This WebSever doesn't implement this method"); //请求方法错误报告
 		return;
 	}
-	read_request_header(&rio);
+	//read_request_header(&rio);
+	int param_len = read_request_header(&rio, method);
+	Rio_readnb(&rio, buf, param_len);
 
 	/* 解析请求报头和请求行中的URI */
 	static_req = parsing_uri(uri, filename, cgiargs);
@@ -49,14 +51,22 @@ void handle_http_trans(int fd)
 			report_error(fd, filename, "403", "Forbidden", "This WebServer couldn't read the file"); // 文件无读取权限报错
 			return ;
 		}
-		static_content_service(fd, filename, sbuf.st_size);
+		//static_content_service(fd, filename, sbuf.st_size);
+		static_content_service(fd, filename, sbuf.st_size, method);
 	}else{
 	/* 动态内容服务 */
 		if(!(S_ISREG(sbuf.st_mode)) || !(S_IXUSR & sbuf.st_mode)){
 			report_error(fd, filename, "403", "Forbidden", "This WebServer couldn't run the CGI program"); // 无法执行动态服务程序报错
 			return ;
 		}
-		dynamic_content_service(fd, filename, cgiargs);
+		//dynamic_content_service(fd, filename, cgiargs);
+		//dynamic_content_service(fd, filename, cgiargs, method);
+		if(strcasecmp(method, "GET") == 0 || strcasecmp(method, "HEAD") == 0)
+		{
+			dynamic_content_service(fd, filename, cgiargs, method);
+		}else{
+			dynamic_content_service(fd, filename, buf, method);
+		}
 	}
 }
 
@@ -68,19 +78,34 @@ void handle_http_trans(int fd)
  *  读取请求报头中的信息，根据请求报头固定格式以空文本行结尾作为循环条件
  *
  * Return:
+ * 	0-返回参数长度
  * 
  */ 
-void read_request_header(rio_t *rp)
+int read_request_header(rio_t *rp, char *method)
 {
 	char buf[MAXLINE];
+	int len = 0;
 
 	/* 读取请求报头和请求行的所有信息并打印 */
+	/*
 	Rio_readlineb(rp, buf, MAXLINE);
 	while(strcmp(buf, "\r\n")){
 		Rio_readlineb(rp, buf, MAXLINE);
 		printf("%s", buf);
 	}
 	return ;
+	*/
+
+	do{
+		Rio_readlineb(rp, buf, MAXLINE);
+		printf("%s", buf);
+
+		if(strcasecmp(method, "POST") == 0 && strncasecmp(buf, "Content-Length:", 15) == 0)
+		{
+			sscanf(buf, "Content-Length: %d", &len);
+		}
+	}while(strcmp(buf, "\r\n"));
+	return len;
 }
 
 /*
@@ -113,10 +138,10 @@ int parsing_uri(char *uri, char *filename, char *cgiargs)
 	/* 动态内容服务 */
 
 		/* 截取所有CGI参数 */
-		ptr = index(uri, "?");
+		ptr = index(uri, '?');
 		if (ptr) {
 			strcpy(cgiargs, ptr+1);
-			*ptr = "\0";
+			*ptr = '\0';
 		}else{
 			strcpy(cgiargs, "");
 		}
@@ -139,7 +164,7 @@ int parsing_uri(char *uri, char *filename, char *cgiargs)
  *    0-无返回值，但打印响应信息
  * 
  */ 
-void static_content_service(int fd, char *filename, int filesize)
+void static_content_service(int fd, char *filename, int filesize, char *method)
 {
 	int srcfd;
 	char *srcp;
@@ -155,6 +180,10 @@ void static_content_service(int fd, char *filename, int filesize)
 	Rio_writen(fd, buf, strlen(buf));
 	printf("Response headers:\n");
 	printf("%s", buf);
+
+	/* 判断是否是HEAD方法 */
+	if (strcasecmp(method, "HEAD") == 0)
+		return;
 
 	/* 发送包含一个本地文件内容的响应主体给客户端 */
 	srcfd = Open(filename, O_RDONLY, 0);
@@ -177,11 +206,15 @@ void static_content_service(int fd, char *filename, int filesize)
 void get_filetype(char *filename, char *filetype)
 {
 	if (strstr(filename, ".html"))
-		strcpy(filetype, "text/html");
+		strcpy(filetype, "text/html");  //HTML
     else if (strstr(filename, ".gif"))
-		strcpy(filetype, "image/gif");
+		strcpy(filetype, "image/gif");  //GIF
 	else if (strstr(filename, ".jpg"))
-		strcpy(filetype, "image/jpeg");
+		strcpy(filetype, "image/jpeg"); //JPG
+	else if (strstr(filename, ".png"))
+		strcpy(filetype, "image/png");  //PNG
+	else if (strstr(filename, ".mpeg"))
+		strcpy(filetype, "video/mpeg"); //MPG
 	else
 		strcpy(filetype, "text/plain");
 }
@@ -197,7 +230,7 @@ void get_filetype(char *filename, char *filetype)
  *    0-无返回值，但在正确响应是返回对应响应内容
  * 
  */ 
-void dynamic_content_service(int fd, char *filename, char *cgiargs)
+void dynamic_content_service(int fd, char *filename, char *cgiargs, char *method)
 {
 	char buf[MAXLINE];
 	char *emptylist[] = {NULL};
@@ -211,10 +244,11 @@ void dynamic_content_service(int fd, char *filename, char *cgiargs)
 	/* 派生子进程执行CGI程序 */
 	if( Fork() == 0 ){
 		setenv("QUERY_STRING",cgiargs, 1); //设置CGI环境变量
+		setenv("REQUEST_METHOD", method, 1);
 		Dup2(fd, STDOUT_FILENO);           //将输出重定向到已连接的文件描述符
 		Execve(filename, emptylist, __environ); // 运行CGI程序
 	}
-	Wait(NULL);
+	Wait(NULL);  //使用SIGCHLD处理程序回收资源替换显示地等待
 }
 
 /*
@@ -249,4 +283,75 @@ void report_error(int fd, char *cause, char *errnum, char *shortmsg, char *longm
 	Rio_writen(fd, body, strlen(body));
 }
 
+/*
+ * 
+ * return_req_headers()函数
+ *
+ * Usage:
+ *	原样返回每个请求行和请求报头   
+ *
+ * Return:
+ *    0-无返回值，打印请求行和报头
+ * 
+ */ 
+void return_req_headers(int connfd)
+{
+	size_t n;
+	char buf[MAXLINE];
+	rio_t rio;
+
+	Rio_readinitb(&rio, connfd);
+	while(( n = Rio_readlineb(&rio, buf, MAXLINE)) != 0){
+		if(strcmp(buf, "\r\n") == 0) //请求行以空行结尾
+		{
+			break;
+		}
+		Rio_writen(connfd, buf, n);
+	}
+}
+
+/*
+ * 
+ * Signal()函数
+ *
+ * Usage:
+ *	信号处理
+ *
+ * Return:
+ * 
+ */ 
+handler_t *Signal(int signum, handler_t *handler) 
+{
+	struct sigaction action, old_action;
+
+    action.sa_handler = handler;  
+    sigemptyset(&action.sa_mask);
+    action.sa_flags = SA_RESTART;
+
+    if (sigaction(signum, &action, &old_action) < 0)
+		unix_error("Signal error");
+    return (old_action.sa_handler);
+}
+
+/*
+ * 
+ * sigchild_handler()函数
+ *
+ * Usage:
+ *	CGI子进程状态处理
+ *
+ * Return:
+ * 
+ */ 
+void sigchild_handler(int sig)
+{
+	int old_errno = errno;
+	int status;
+	pid_t pid;
+	while((pid = Waitpid(-1, &status, WNOHANG)) > 0)
+	{
+		//通过判断条件终止循环
+	}
+	errno = old_errno;
+}
 /* $end service.c */

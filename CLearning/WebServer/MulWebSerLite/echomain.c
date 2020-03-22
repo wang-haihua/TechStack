@@ -23,7 +23,6 @@ int main(int argc, const char *argv[])
 {
     int listenfd, connfd, port, clientlen;
     struct sockaddr_in clientaddr;
-	static pool pool;
 
 	/* 检查命令行参数，并将第1个参数作为端口号port */
     if (argc != 2) {
@@ -32,21 +31,23 @@ int main(int argc, const char *argv[])
     }
     port = atoi(argv[1]);
 
+	/* 在SIGCHLD处理程序中回收操作系统分配给CGI子进程的资源 */
+	/*
+	if(Signal(SIGCHLD, sigchild_handler) == SIG_ERR)
+	{
+		unix_error("signal child handler error");
+	}
+	*/
+
     listenfd = Open_listenfd(port); //将输入port与服务器套接字地址建立联系，形成监听套接字
-	init_pool(listenfd, &pool);
 
 	/*无限服务器循环，不断地接收连接请求*/
     while (1) {
-		pool.ready_set = pool.read_set;
-		pool.nready = Select(pool.maxfd+1, &pool.read_set, NULL, NULL, NULL);
-
-		if(FD_ISSET(listenfd, &pool.ready_set)){
-			clientlen = sizeof(clientaddr);
-			connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen);//使用Accept()函数等待客户端连接
-			add_client(connfd, &pool);
-		}
-	
-		check_clients(&pool);		
+		clientlen = sizeof(clientaddr);
+		connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen);//使用Accept()函数等待客户端连接
+		handle_http_trans(connfd);                               //调用http事务处理函数
+		//return_req_headers(connfd);                            //原样返回客户端请求不处理
+		Close(connfd);                                         
     }
 }
 
