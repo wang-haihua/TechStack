@@ -30,6 +30,9 @@
 			      </li>
 			      <li class="nav-item">
 			        <a class="nav-link smooth-link" href="#project">Impl</a>
+				  </li>
+				  <li class="nav-item">
+			        <a class="nav-link smooth-link" href="#dynamic">Dyna</a>
 			      </li>
 				</ul>
 			  </div>
@@ -52,13 +55,10 @@
 				<div class="row">
 					<div class="col-12 col-md-4 col-sm-12" style="flex: 0 0 50%; max-width: 50;">
 						<div class="list-item">
-							<div class="icon">
-								<i class="ion-paintbrush"></i>
-							</div>
 							<div class="desc">
 								<h2>论文文档</h2>
 								<p>
-									介绍这个基于I/O多路复用的并发Web服务器从无到有过程的论文文档。包括关键技术分析与研究，Web服务器实现过程和Web服务器的功能测试等内容
+									介绍这个基于I/O多路复用的并发Web服务器从无到有过程的论文文档。包括关键技术分析与研究，Web服务器实现过程和Web服务器的功能测试等文本研究内容。
 								</p>
 								<a href="docs.pdf" class="more" target="_blank">Learn More</a>
 							</div>
@@ -66,15 +66,12 @@
 					</div>
 					<div class="col-12 col-md-4 col-sm-12">
 						<div class="list-item">
-							<div class="icon">
-								<i class="ion-code"></i>
-							</div>
 							<div class="desc">
 								<h2>关键源码</h2>
 								<p>
-									在我的Web服务器开发过程中，使用的关键技术的实现的相关源码。主要包含Web服务器处理HTTP事务，实现动态内容服务以及抗并发能力的实现等源码
+									在我的Web服务器开发过程中，使用的关键技术的实现的相关源码。主要包含Web服务器处理HTTP事务，实现动态内容服务以及抗并发能力的实现等源码。
 								</p>
-								<a href="#" class="more">Learn More</a>
+								<a href="code.pdf" class="more" target="_blank">Learn More</a>
 							</div>
 						</div>
 					</div>
@@ -137,8 +134,8 @@
 							<article class="card">
 							  <img class="card-img-top" src="img/news/img06.jpg" alt="Article Image">
 							  <div class="card-body">
-							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">Ut enim ad minim veniam quis nostrud enim ad kruv</a></h4>
-							    <p class="card-text">Mauris eu eros in metus elementum porta eget sed ligula. Praesent consequat, ipsum molestie pellentesque venenatis. Praesent consequat.</p>
+							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">Web服务器的源码组织结构</a></h4>
+							    <p class="card-text">Web服务器的目录组织结构主要分为三部分，包括/bin、/src和主目录下的C语言源代码。bin目录下包含的是各种CGI程序，src目录下包含各种静态资源，./主目录下是实现Web服务器的C语言源代码。</p>
 						    </div>
 						  </article>
 						</div>
@@ -202,32 +199,29 @@
 			</div>
 		</section>
 
-		<section class="padding bg-grey" id="contact">
+		<section class="padding bg-grey" id="dynamic">
 			<div class="container">
 				<h2 class="section-title text-center">动态内容服务</h2>
 				<div class="section-body">				
 					<div class="row col-spacing">
 						<div></div>
 						<div class="col-12 col-md-5">
-							<br>
 							<p class="contact-text" style="margin-left: 100px;">1.在第一行两个输入框输入两个自然数<br>2.在第二行输入运算符号<br>3.点击“提交”按钮，请求服务</p>
 						</div>
 						
 						<div class="col-12 col-md-7" >
-							<form class="contact row" id="contact-form" align="center">
+							<form class="contact row" id="contact-form" align="center" action="/bin/post-adder"  method="POST">
 								<div class="form-group col-6">
-									<input type="text" class="form-control" placeholder="FirstNumber" name="firstNumber" required="">
+									<input type="text" class="form-control" placeholder="FirstNumber" name="first" required="">
 								</div>
 								<div class="form-group col-6">
-									<input type="text" class="form-control" placeholder="SecondNumber" name="secondNumber" required="">
+									<input type="text" class="form-control" placeholder="SecondNumber" name="second" required="">
 								</div>
-								<div class="form-group col-12">
+								<div class="form-group col-6">
 									<input type="text" class="form-control" placeholder="Operation" name="operation" required="">
 								</div>
-								<div class="form-group col-12 mt-2">
-									<button class="btn btn-primary">
-										Submit Request
-									</button>
+								<div class="form-group col-6">
+									<input class="btn btn-primary" type="submit" value="Submit Request"/>
 								</div>
 							</form>
 						</div>
