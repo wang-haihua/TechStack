@@ -30,8 +30,13 @@ int main(int argc, char **argv)
     while (1) {
 	clientlen = sizeof(clientaddr);
 	connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen); //line:netp:tiny:accept
-	doit(connfd);                                             //line:netp:tiny:doit
-	Close(connfd);                                            //line:netp:tiny:close
+     if (Fork() == 0) {
+      Close(listenfd);
+      doit(connfd);                                             //line:netp:tiny:doit
+      Close(connfd);                                            //line:netp:tiny:close
+      exit(0);
+    }
+    Close(connfd);
     }
 }
 /* $end tinymain */

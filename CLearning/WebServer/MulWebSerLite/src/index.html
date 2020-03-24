@@ -149,7 +149,7 @@
 				<div class="row align-items-center">
 					<div class="col-12 col-md-6">
 						<video width="500" height="380" controls>
-							<source src="video.mp4">
+							<source src="video.mpeg">
 						</video>
 					</div>
 					<div class="col-12 col-md-6">
@@ -171,28 +171,28 @@
 					<div class="row col-spacing">
 						<div class="col-12 col-md-6 col-lg-4">
 							<article class="card">
-							  <img class="card-img-top" src="img/news/img01.jpg" alt="Article Image">
+							  <img class="card-img-top" src="img/news/img10.jpg" alt="Article Image">
 							  <div class="card-body">
-							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">客户端/服务器编程模型</a></h4>
-							    <p class="card-text">这个模型由一个或多个客户端进程和一个服务器进程组成。客户端向服务器请求服务，而服务器则负责管理各种资源并根据客户端的请求通过对应的操作为客户端提供服务。</p>
+							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">静态内容服务测试</a></h4>
+							    <p class="card-text">本Web服务器的静态内容服务包括HTML文件、TXT文本文件、PDF格式文件、JPG和PNG格式图片以及MPG格式的视频文件等静态资源的请求服务，图片中展示的是视频文件服务。</p>
 						    </div>
 						  </article>
 					  </div>
 					  <div class="col-12 col-md-6 col-lg-4">
 							<article class="card">
-							  <img class="card-img-top" src="img/news/img02.jpg" alt="Article Image">
+							  <img class="card-img-top" src="img/news/img11.jpg" alt="Article Image">
 							  <div class="card-body">
-							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">Web服务器工作原理</a></h4>
-							    <p class="card-text">一个服务器进程和远程的客户端进程进行通信时，首先需要使用套接字接口与客户端建立连接，然后根据特定传输协议处理请求并进行操作资源，最后将处理结果作为响应内容发送出去。</p>
+							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">动态内容服务测试</a></h4>
+							    <p class="card-text">本Web服务器的动态内容服务是通过调用外部的CGI程序实现的，图片中展示的是一个加法计算过程，在客户端页面输入两个操作数，在服务器资源中调用CGI程序计算结果并返回HTML页面展示结果。</p>
 						    </div>
 						  </article>
 						</div>
 						<div class="col-12 col-md-6 col-lg-4">
 							<article class="card">
-							  <img class="card-img-top" src="img/news/img03.jpg" alt="Article Image">
+							  <img class="card-img-top" src="img/news/img12.jpg" alt="Article Image">
 							  <div class="card-body">
-							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">套接字接口实现网络通信</a></h4>
-							    <p class="card-text">套接字接口是一组基于TCP/IP网络协议的API，在操作系统内核中它被实现为一组系统调用。服务器和客户端混合使用这一组系统调用来实现网络连接的建立和数据的传输。</p>
+							    <h4 class="card-title"><a href="#" data-toggle="read" data-id="1">抗并发能力测试</a></h4>
+							    <p class="card-text">本服务器的抗并发能力是基于I/O多路复用技术实现的，图中展示的是使用webbench轻量级压力测试工具，模拟1000个客户端并发的对Web服务器发出HTTP请求检测服务并发响应能力。</p>
 						    </div>
 						  </article>
 					  </div>
@@ -206,21 +206,18 @@
 					<div class="row col-spacing">
 						<div></div>
 						<div class="col-12 col-md-5">
-							<p class="contact-text" style="margin-left: 100px;">1.在第一行两个输入框输入两个自然数<br>2.在第二行输入运算符号<br>3.点击“提交”按钮，请求服务</p>
+							<p class="contact-text" style="margin-left: 100px;"><br>1.在第一行两个输入框输入两个自然数<br>2.点击“提交”按钮，请求服务</p>
 						</div>
 						
 						<div class="col-12 col-md-7" >
-							<form class="contact row" id="contact-form" align="center" action="/bin/post-adder"  method="POST">
+							<form class="contact row" action="/bin/form-adder" method="POST">
 								<div class="form-group col-6">
-									<input type="text" class="form-control" placeholder="FirstNumber" name="first" required="">
+									<input type="text" class="form-control" placeholder="FirstNumber" name="first">
 								</div>
 								<div class="form-group col-6">
-									<input type="text" class="form-control" placeholder="SecondNumber" name="second" required="">
+									<input type="text" class="form-control" placeholder="SecondNumber" name="second">
 								</div>
-								<div class="form-group col-6">
-									<input type="text" class="form-control" placeholder="Operation" name="operation" required="">
-								</div>
-								<div class="form-group col-6">
+								<div class="form-group col-12" align="center">
 									<input class="btn btn-primary" type="submit" value="Submit Request"/>
 								</div>
 							</form>

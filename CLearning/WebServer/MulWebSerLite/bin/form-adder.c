@@ -17,13 +17,13 @@ int main(void) {
 	method = getenv("REQUEST_METHOD");
 
     /* 创建HTTP响应主体 */
-    sprintf(content, "Welcome to WangHaihua‘s WebServer: ");
+    sprintf(content, "Welcome to WangHaihua WebServer: ");
     sprintf(content, "%sThese's the dynamic content service based on CGI\r\n<p>", content);
     sprintf(content, "%sThe answer is: %d + %d = %d\r\n<p>", content, n1, n2, n1 + n2);
     sprintf(content, "%sThanks for visiting!\r\n", content);
     
     /* 形成HTTP响应 */
-    printf("Connection: close\r\n")
+    printf("Connection: close\r\n");
     printf("Content-length: %d\r\n", (int)strlen(content));
     printf("Content-type: text/html\r\n\r\n");
     if(strcasecmp(method, "HEAD") !=0 )
