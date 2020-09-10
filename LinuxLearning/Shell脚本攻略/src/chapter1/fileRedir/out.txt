@@ -1,0 +1,6 @@
+     1	fileRedir.sh
+     2	log.txt
+     3	out.txt
+     4	pipe.sh
+     5	stderr.txt
+     6	temp.txt
