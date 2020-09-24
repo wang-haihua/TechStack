@@ -1,0 +1,9 @@
+--- diff1.txt	2020-09-24 12:48:29.747585572 +0800
++++ diff2.txt	2020-09-24 12:49:36.707588765 +0800
+@@ -2,4 +2,6 @@
+ line2
+ line3
+ line4
++line5
+ happy hacking!
++GUN is not UNIX
