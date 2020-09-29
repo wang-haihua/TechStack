@@ -1,0 +1,6 @@
+this is the line one from grep2
+this is the line tow from grep2
+this is the line three from grep2
+this is the line four from grep2
+this is the line five from grep2
+this is the line six from grep2
