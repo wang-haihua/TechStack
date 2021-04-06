@@ -56,29 +56,30 @@
 >**代码：**
 >
 >```python
->class Solution:
->    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
->        pointer1 = m-1
->        pointer2 = n-1
->        index = m+n-1
->        if m == 0:
->            for index_nums2 in range(len(nums2)):
->                nums1[index_nums2] = nums2[index_nums2]
->            return
->        while(pointer2 >= 0):
->            if pointer1 == -1 and index != -1:
->                nums1[index] = nums2[pointer2]
->                pointer2 -= 1
->                index -= 1
->                continue
->            if nums2[pointer2] >= nums1[pointer1]:
->                nums1[index] = nums2[pointer2]
->                pointer2 -= 1
->                index -= 1
->            else:
->                nums1[index] = nums1[pointer1]
->                index -= 1
->                pointer1 -= 1
+>class Solution{
+>public:
+>    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n){
+>        int tail1 = m-1, tail2 = n-1, tail = m+n-1;
+>        if(0 == tail1){
+>            nums1 = nums2;
+>        }
+>        while(tail2 >= 0){
+>            if(tail1 < 0){
+>                nums1[tail--] = nums2[tail2--];
+>                continue;
+>            }
+>            if(nums1[tail1] < nums2[tail2]){
+>                nums1[tail--] = nums2[tail2--];
+>            }else{
+>                nums1[tail--] = nums1[tail1--];
+>            }
+>        }
+>        for(int i =0; i< m+n; i++){
+>            cout<<nums1[i]<<' ';
+>        }
+>        cout<<endl;
+>    }
+>};
 >```
 
 #### 碰撞指针常见问题
