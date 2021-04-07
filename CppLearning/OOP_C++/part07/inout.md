@@ -137,3 +137,63 @@ int main(){
 
 #### 二进制文件读写
 
+**二进制读文件**：
+
+​	二进制读文件可以使用 `ifstream` 和 `fstream` 的成员函数 `istream& read(char* s, long n);`，`read` 函数的作用是将文件读指针指向的地方的 n 个字节内容，读入到内存地址 s，然后将文件读指针向后移动 n 个字节；如果文件使用 `ios::in` 的方式打开文件，文件的读指针开始指向文件开头。
+
+**二进制写文件**：
+
+​	二进制写文件可以使用 `ofstream` 和 `fstream` 的成员函数 `istream& write(const char* s, long n);`，`write` 函数的作用是将内存地址 s 处的 n 个字节内容，写入到文件中写指针指向的位置，然后将文件写指针向后移动 n 个字节；如果文件使用 `ios::out` 的方式打开文件，文件的写指针开始指向文件开头；`ios::app` 方式打开文件时，文件写指针最开始指向文件尾部。
+
+```cpp
+#include<iostream>
+#include<fstream>
+int main(){
+    ofstream fout("data.dat", ios::out|ios::binary);
+    int x=120;
+    fout.write((const char *)(&x), sizeof(int));
+    fout.close();
+    ifstream fin("data.dat", ios::in|ios::binary);
+    int y;
+    fin.read((char *)(&y), sizeof(int));
+    fin.close();
+    cout << y << endl;
+    return 0;
+}
+```
+
+**文件读写实例-文件拷贝**：将 `ori.dat` 拷贝到 `dest.dat` ，如果目标文件存在就将其原始文件覆盖。
+
+```cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main(int argc, char* argv[]){
+	if(argc != 3){
+        cout << "file name missing1" << endl;
+        return 0;
+    }
+    // 读取二进制文件
+    ifstream inFile(argv[1], ios::binary|ios::in);
+    if(!inFile){
+        cout << "Source file open error." << endl;
+        return 0;
+    }
+	// 写入二进制文件
+    ofstream outFile(argv[2], ios::binary|ios::out);
+    if(!outFile){
+        cout << "New file open error." << endl;
+        inFile.close();
+        return 0;
+    }
+    // 拷贝文件
+    char c;
+    while(inFile.get(c)){ // 每次从源文件读取一个字符
+        outFile.put(c); // 每次写入一个字符到目标文件
+    }
+    outFile.close();
+    inFile.close();
+    return 0;
+}
+```
+
