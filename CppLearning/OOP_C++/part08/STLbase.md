@@ -40,7 +40,42 @@ sort(parr, parr+70); // 使用 sort() 算法作用于该容器
 ​    使用容器时需要注意两点：
 
 * 对象被插入容器中时，被插入的是对象的一个**复制品**
-* 有些容器本身是存在顺序关系的即是**已排序的**，所以放入容器的对象所属的类一般需要重载 **==** 和 **<** 运算符。 
+
+* 有些容器本身是存在顺序关系的即是**已排序的**，所以放入容器的对象所属的类一般需要重载 **==** 和 **<** 运算符。STL 中相等 `==` 和大小 `<` 的概念是可以自定义的，不局限于数值大小，示例如下：
+
+  ```cpp
+  #include <iostream>
+  #include <algorithm>
+  #include <vector>
+  using namespace std;
+  
+  class A{
+      int v;
+  public:
+      A(int n):v(n){};
+      bool operator<(const A& a2) const{
+          cout << v << "<" << a2.v << "?" << endl;
+          return false;
+      }
+      bool operator==(const A& a2) const{
+          cout << v << "==" << a2.v << "?" <<endl;
+          return v == a2.v;
+      }
+  };
+  
+  int main(){
+      A a[] = {A(1),A(2),A(3),A(4),A(5)};
+      cout << binary_search(a,a+4,A(9)); // 折半查找
+      return 0;
+  }
+  /*output: 说明 binary_search()方法没有使用 == 运算符只使用了<
+  3<9?
+  2<9?
+  1<9?
+  9<1?
+  1
+  */
+  ```
 
 **顺序容器**：
 
@@ -86,5 +121,110 @@ sort(parr, parr+70); // 使用 sort() 算法作用于该容器
 
 ### 迭代器
 
+​	迭代器的用法和**指针**类似，用于指向顺序容器和关联容器中的元素。迭代器分为 *const* 和非 *const* 两种，通过迭代器可以**读取**它指向的元素，通过非 *const* 迭代器可以**修改**其指向的元素。
 
+​	容器类的迭代器的定义方式如下，并使用 `*` 运算符访问迭代器所指向的元素：
+
+```cpp
+容器类名::iterator 变量名; // 非const迭代器
+容器类名::const_iterator 变量名; // const迭代器
+* 迭代器变量名;
+```
+
+​	迭代器上可以执行 `++` 操作来移动迭代器，使其指向容器中的**下一个**元素。如果迭代器到达了容器中的最后一个元素的后面，此时在使用该迭代器就会出错，类似于使用了未被初始化的指针。
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main(){
+    vector<int> v; // 空数组
+    v.push_back(1); v.push_back(2); v.push_back(3); v.push_back(4);
+    vector<int>::const_iterator cit; // const 迭代器
+    for(cit = v.begin(); cit != v.end(); ++cit){
+        cout << *cit << ',';
+    }
+    cout << endl;
+
+    vector<int>::reverse_iterator rit; // 反向迭代器
+    for(rit = v.rbegin(); rit != v.rend(); ++rit){
+        cout << *rit << ',';
+    }
+    cout << endl;
+
+    vector<int>::iterator it; // 非 const 迭代器
+    for(it = v.begin(); it != v.end(); ++it){
+        *it += 1;
+        cout << *it << ',';
+    }
+    cout << endl;
+    return 0;
+}
+```
+
+**双向迭代器**：
+
+​	可以使用 `++/--` 运算符使迭代器指向容器中的下一个元素或上一个元素，同样也使用 `*` 运算符取迭代器所指向的元素。除此之外，双向迭代器可以用其他双向迭代器进行**赋值 `=`**，和与其他双向迭代器进行**相等判定 `==/!=`**
+
+**随机访问迭代器**：
+
+​	除了具备双向迭代器的所有操作，随机访问迭代器还可以指定**步长**随机移动，例如 `p +=/-= i` 表示将该迭代器向后或向前移动 `i` 个元素；`p +/- i` 表示指向该迭代器之后或之前的第 `i` 个元素的迭代器；`p[i]` 表示该迭代器之后的第 `i` 个元素的**引用**。除了双向迭代器的相等判定之外，随机访问迭代器可以进行**大小判定 `<, <=, >, >=`**。
+
+**容器和迭代器**：
+
+|       容器       | 容器上的迭代器类别 |
+| :--------------: | :----------------: |
+|     `vector`     |   随机访问迭代器   |
+|     `deque`      |   随机访问迭代器   |
+|      `list`      |     双向迭代器     |
+|  `set/multiset`  |     双向迭代器     |
+|  `map/multimap`  |     双向迭代器     |
+|     `stack`      |    不支持迭代器    |
+|     `queue`      |    不支持迭代器    |
+| `priority_queue` |    不支持迭代器    |
+
+​	容器支持的迭代器也直接限制其支持的算法，有的算法需要使用**随机访问迭代器**访问容器中的元素，例如 `sort(), binary_search()` 算法，那么 *list* 以及关联容器就不支持该算法。
+
+### 算法
+
+​	STL 中提供了能在各种容器中通用的算法，算法就是**函数模板**集合，大多数算法都定义在头文件 `<algorithm>` 中，算法不仅仅只可以对容器进行操作，也可以处理普通数组。
+
+​	算法通过迭代器来操作容器中的元素，一些算法不仅可以操作整个容器中的元素，也可以只操作容器中的一个**局部区间**，例如排序和查找算法，所以这类算法一般会带有两个参数，即**起始元素**的迭代器和**终止元素的后一个元素**的迭代器。有的算法的返回值是一个迭代器，例如 `find()` 算法的作用就是在容器中查找一个元素，并返回指向该元素的迭代器。
+
+```cpp
+template <class Inlt, class T>
+Inlt find(Inlt first, Inlt last, const T& val); // 查找区间左闭右开 [first, last)，在该区间中找到等于 val 的元素并返回指向该元素的迭代器 
+```
+
+```cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main(){
+    int array[10] = {10,20,30,40};
+    vector<int> v;
+    v.push_back(1); v.push_back(2); v.push_back(3); v.push_back(4);
+    vector<int>::iterator it;
+    it = find(v.begin(), v.end(), 3);
+    if(it != v.end()){
+        cout << *it << endl;
+    }
+    // find() 没有找到元素时，返回容器末尾迭代器
+    it = find(v.begin(), v.end(), 9);
+    if(it == v.end()){
+        cout << "not found" << endl;
+    }
+    it = find(v.begin()+1,v.end()-2,2); // 完整容器:[1,2,3,4]，查找的局部区间:[2,3)
+    if(it != v.end()){
+        cout << *it << endl;
+    }
+    // 算法操作普通数组
+    int *parr = find(array,array+4,20);
+    cout<< *parr << endl;
+    return 0;
+}
+```
 
