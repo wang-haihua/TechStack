@@ -7,7 +7,7 @@
 
 ### 动态数组 vector
 
-​	*vector* `#include <vector> ` 动态数组：其元素在内存中是连续存放的，随机存取任何元素都可以在常数时间内完成，在该容器的尾部增删元素也几乎能够在常熟时间内完成具有较好的性能。
+​	*vector* `#include <vector> ` 动态数组：其元素在内存中是连续存放的，随机存取任何元素都可以在常数时间内完成，在该容器的尾部增删元素也几乎能够在常数时间内完成具有较好的性能。
 
 ​	一个 vector 常用函数使用实例如下：
 
@@ -106,11 +106,147 @@ int main(){
 
 #### 用 vector 实现二维数组
 
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
 
+int main(){
+    vector<vector<int>> arr(3); // arr中有 3 个元素，每个元素都是 vector<int> 容器
+    for(int i=0; i<arr.size(); ++i){
+        for(int j=0; j<3; ++j){
+            arr[i].push_back(j);
+        }
+    }
+    for(int i=0; i<arr.size(); ++i){
+        for(int j=0; j<3; ++j){
+            cout << arr[i][j] << ' ';
+        }
+        cout << endl;
+    }
+    return 0;
+}
+```
 
 ### 双向队列 deque
 
-​	*deque* `#include <deque>` 双向队列：其元素在内存中是连续存放的，随机存取任何元素都可以在常数时间内完成，在该容器的两端增删元素也几乎能够在常熟时间内完成具有较好的性能。
+​	*deque* `#include <deque>` 双向队列：其元素在内存中是连续存放的，随机存取任何元素都可以在常数时间内完成，在该容器的两端增删元素也几乎能够在常数时间内完成具有较好的性能。
+
+​	所有适用于 *vector* 的操作都适用于 *deque*，除此之外，*deque* 还有 `push_front / pop_front` 在最前端插入或删除元素的操作，复杂的都是 $O(1)$ 。
+
+|     函数      |                     函数描述                     |
+| :-----------: | :----------------------------------------------: |
+|     deque     |                     构造函数                     |
+|   push_back   |            在容器的末尾添加一个新元素            |
+|  push_front   |            在容器的开头插入一个新元素            |
+|   pop_back    | 删除容器中的最后一个元素，同时将容器大小减少一个 |
+|   pop_front   |  删除容器中的第一个元素，同时将容器大小减少一个  |
+| emplace_front |           在容器的开头插入一个新的元素           |
+| emplace_back  |           在容器的末尾插入一个新的元素           |
 
 ### 双向链表 list
-​	*list* `#include <list>` 双向链表：其元素在内存中是不连续存放的，不支持随机存取，在该容器的任何位置增删元素几乎都能够在常熟时间内完成具有较好的性能。
+​	*list* `#include <list>` 双向链表：其元素在内存中是不连续存放的，不支持随机存取，在该容器的任何位置增删元素几乎都能够在常数时间内完成具有较好的性能。
+
+​	*list* 除了具有所有顺序容器都有的成员函数之外，还支持以下8个成员函数：
+
+|    函数    |                           函数描述                           |
+| :--------: | :----------------------------------------------------------: |
+| push_front |                  在容器的开头插入一个新元素                  |
+| pop_front  |                    删除容器中的第一个元素                    |
+|    sort    |     元素排序，值得注意的是 list 不支持 STL 算法中的 sort     |
+|   remove   |                  删除和指定值相等的所有元素                  |
+|   unique   | 删除所有和前一个元素相同的元素，使得元素不重复，使用之前需要sort |
+|   merge    |             合并两个链表，并清空被合并的那个链表             |
+|  reverse   |                         颠倒链表内容                         |
+|   splice   | 在指定位置前面插入另一链表中的一个或多个元素，并在该链表中删除这些元素 |
+
+​	一个 *list* 的成员函数使用实例如下：
+
+```cpp
+#include <iostream>
+#include <list>
+#include <algorithm>
+using namespace std;
+
+class A{
+    private:
+        int n;
+    public:
+        A(int n_){n = n_;}
+        friend bool operator<(const A & a1, const A & a2);
+        friend bool operator==(const A & a1, const A & a2);
+        friend ostream& operator<<(ostream & o, const A & a2);
+};
+
+bool operator<(const A & a1, const A & a2){
+    return a1.n < a2.n;
+}
+
+bool operator==(const A & a1, const A & a2){
+    return a1.n == a2.n;
+}
+
+ostream& operator<<(ostream & o, const A & a2){
+    o << a2.n;
+    return o;
+}
+
+template <class T>
+void printList(T start, T end){
+    for(;start != end; ++start){
+        cout << *start << ',';
+    }
+    cout << endl;
+}
+
+int main(){
+    list<A> lst1, lst2;
+    lst1.push_back(1); lst1.push_back(3);
+    lst1.push_back(2); lst1.push_back(4);
+    lst1.push_back(2);
+    lst2.push_back(10); lst2.push_back(50);
+    lst2.push_back(30); lst2.push_back(30);  
+    lst2.push_back(40); lst2.push_back(40); 
+    lst2.push_back(30); lst2.push_back(20);
+    cout << "1) ";
+    printList(lst1.begin(),lst1.end());
+    cout << "2) ";
+    printList(lst2.begin(),lst2.end());
+    lst2.sort(); // 调用 sort 成员函数进行 lst2 排序
+    cout << "3) ";
+    printList(lst2.begin(),lst2.end());
+    lst2.unique(); // 删除 lst2 中所有和前一个元素相等的元素
+    cout << "4) ";
+    printList(lst2.begin(),lst2.end());
+    lst2.pop_front(); // 将 lst2 的第一个元素删除
+    cout << "5) ";
+    printList(lst2.begin(),lst2.end());
+    lst1.remove(2); // 删除 lst1 中所有值为 2 的元素
+    cout << "6) ";
+    printList(lst1.begin(),lst1.end());
+    lst2.merge(lst1); // 将 lst1 中的元素合并到 lst2 并将 lst1 清空
+    cout << "7) ";
+    printList(lst2.begin(),lst2.end());
+    lst2.reverse(); // 颠倒 lst2
+    cout << "8) ";
+    printList(lst2.begin(),lst2.end());
+    
+    lst1.push_back(100); lst1.push_back(200); 
+    lst1.push_back(300); lst1.push_back(400);
+    cout<<"9) ";
+    printList(lst1.begin(),lst1.end());
+    // 找到列表中的指定元素
+    list<A>::iterator p1,p2,p3;
+    p1 = find(lst2.begin(),lst2.end(),4);
+    p2 = find(lst1.begin(),lst1.end(),200);
+    p3 = find(lst1.begin(),lst1.end(),400);
+    lst2.splice(p1,lst1,p2,p3); // 将 lst1 中 [p2,p3) 区间内的元素插入到 lst2 中 p1 位置之前，并将这些元素从 lst1 中删除
+    cout<<"10) ";
+    printList(lst1.begin(),lst1.end());
+    cout<<"11) ";
+    printList(lst2.begin(),lst2.end());
+    
+    return 0;
+}
+```
+
