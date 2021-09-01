@@ -71,7 +71,7 @@ void quickSort(vector<int> &nums, int start, int end){
 }
 
 void mergeSort(vector<int> &nums, int start, int end, vector<int> &tmp){
-    if(start>end) return;
+    if(start+1>=end) return;
     int mid = start + (end-start)/2;
     mergeSort(nums,start,mid,tmp);
     mergeSort(nums,mid,end,tmp);
