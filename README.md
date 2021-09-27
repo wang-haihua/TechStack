@@ -1,7 +1,5 @@
 # TechStack
-![](https://img.shields.io/github/stars/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/watchers/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/forks/HaihuaHaihua/TechnicalRoute?style=social)![](https://img.shields.io/github/followers/HaihuaHaihua?style=social)    
-
-![](https://img.shields.io/github/repo-size/HaihuaHaihua/TechnicalRoute?color=green) ![](https://img.shields.io/github/license/HaihuaHaihua/TechnicalRoute)![](https://img.shields.io/badge/Author-QingHuan-blue)
+![](https://img.shields.io/github/stars/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/watchers/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/forks/HaihuaHaihua/TechnicalRoute?style=social)| ![](https://img.shields.io/github/repo-size/HaihuaHaihua/TechnicalRoute?color=green) ![](https://img.shields.io/badge/Author-QingHuan-blue)
 
 ​	本仓库主要内容是关于后端架构技术的学习笔记，包含C/C++编程语言、Linux操作系统、数据结构与算法、操作系统和计算机网络等计算机基础内容，也涉及部分容器、监控运维、中间件等分布式相关内容。
 
