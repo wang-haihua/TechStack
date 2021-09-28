@@ -1,5 +1,5 @@
 # TechStack
-![](https://img.shields.io/github/stars/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/watchers/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/forks/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/repo-size/HaihuaHaihua/TechnicalRoute?color=green) ![](https://img.shields.io/badge/Author-QingHuan-blue)
+![](https://img.shields.io/github/stars/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/watchers/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/forks/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/repo-size/HaihuaHaihua/TechnicalRoute?color=green)[![知识共享协议（CC协议）](https://img.shields.io/badge/License-Creative%20Commons-DC3D24.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)![](https://img.shields.io/badge/Author-QingHuan-blue)
 
 ​	本仓库主要内容是关于后端架构技术的学习笔记，包含C/C++编程语言、Linux操作系统、数据结构与算法、操作系统和计算机网络等计算机基础内容，也涉及部分容器、监控运维、中间件等分布式相关内容。
 
@@ -31,9 +31,11 @@
 
 * :book: [深入理解计算机系统](https://github.com/HaihuaHaihua/TechStack/blob/master/ComputerBasics/深入理解计算机系统/README.md)
 
-### :cloud: [分布式技术]()
+### :cloud: [分布式技术](https://github.com/HaihuaHaihua/TechStack/blob/master/DistributedArchitect/DistributedArchitect.md)
 
+* :man_teacher: [Redis 入门实践](https://github.com/HaihuaHaihua/TechStack/blob/master/DistributedArchitect/Redis/README.md)
 
+### :construction_worker: [求职指南](https://github.com/HaihuaHaihua/TechStack/blob/master/CareerPlan/CareerPlan.m)
 
-### :construction_worker: [求职指南]()
+* :rocket: [后端架构师技术图谱](https://github.com/HaihuaHaihua/TechStack/blob/master/CareerPlan/Profession/后端架构师技术图谱.md)
 
