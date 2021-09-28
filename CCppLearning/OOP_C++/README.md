@@ -21,5 +21,5 @@
 
 * ​    [程序设计与算法（三）C++面向对象程序设计](https://www.icourse163.org/course/PKU-1002029030?tid=1463187446)
 
-### :bookmark: [源码目录](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/OOP_C++)
+### :bookmark: [源码目录](https://github.com/HaihuaHaihua/TechStack/tree/master/CCppLearning/OOP_C++)
 

@@ -11,5 +11,5 @@
 
 * ​    [C语言程序设计 浙江大学 翁恺](https://www.icourse163.org/course/ZJU-9001)
 
-### :bookmark: [源码目录](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/C语言程序设计进阶)
+### :bookmark: [源码目录](https://github.com/HaihuaHaihua/TechStack/tree/master/CCppLearning/C语言程序设计进阶)
 

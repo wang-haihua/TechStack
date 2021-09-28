@@ -18,18 +18,18 @@
 
 ### :computer: [Linux](https://github.com/HaihuaHaihua/TechStack/blob/master/LinuxLearning/LinuxLearning.md)
 
-* :man_teacher: [Linux 操作系统编程]()
-* :book: [Vim 实用技巧]()
-* :book: [Shell 脚本攻略]()
+* :man_teacher: [Linux 操作系统编程](https://github.com/HaihuaHaihua/TechStack/blob/master/LinuxLearning/Linux操作系统编程/README.md)
+* :book: [Vim 实用技巧](https://github.com/HaihuaHaihua/TechStack/blob/master/LinuxLearning/Vim实用技巧/README.md)
+* :book: [Shell 脚本攻略](https://github.com/HaihuaHaihua/TechStack/blob/master/LinuxLearning/Shell脚本攻略/README.md)
 
 ### :thinking: [数据结构与算法](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/ALGLearning.md)
 
-* :man_teacher: [算法基础]()
-* :bookmark_tabs: [LeetCode 刷题]()
+* :man_teacher: [算法基础](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/Algorithm Analysis and Design/README.md)
+* :bookmark_tabs: [LeetCode 刷题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/README.md)
 
 ### :rice: [计算机基础](https://github.com/HaihuaHaihua/TechStack/blob/master/ComputerBasics/ComputerBasics.md)
 
-* :book: [深入理解计算机系统]()
+* :book: [深入理解计算机系统](https://github.com/HaihuaHaihua/TechStack/blob/master/ComputerBasics/深入理解计算机系统/README.md)
 
 ### :cloud: [分布式技术]()
 
