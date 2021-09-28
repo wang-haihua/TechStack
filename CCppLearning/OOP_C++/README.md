@@ -1,14 +1,3 @@
-## :pencil2: [C/C++](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/CCppLearning.md)
-
-### :man_teacher: [C 语言程序设计进阶](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/C语言程序设计进阶/README.md)
-
-* ​	[01 数据类型](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/C语言程序设计进阶/01数据类型.md)
-* ​	[02 指针与字符串](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/C语言程序设计进阶/02指针与字符串.md)
-* ​	[03 结构类型](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/C语言程序设计进阶/03结构类型.md)
-* ​	[04 链表](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/C语言程序设计进阶/04链表.md)
-* ​	[05 程序结构](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/C语言程序设计进阶/05程序结构.md)
-* ​	[06 文件操作](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/C语言程序设计进阶/06文件.md)
-
 ### :man_teacher: [C++ 面向对象程序设计](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/OOP_C++/README.md)
 
 * ​	[01 从 C 到 C++](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/OOP_C++/part01/From_C_to_C++.md)
@@ -27,4 +16,10 @@
 * ​	[14 C++ 标准模板库 STL 关联容器](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/OOP_C++/part08/associatedContainer.md)
 * ​	[15 C++ 标准模板库 STL 容器适配器](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/OOP_C++/part08/containerAdapters.md)
 * ​	[16 C++11 常用新特性汇总](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/OOP_C++/part09/c++11.md)
+
+### :mag_right: [参考资料]()
+
+* ​    [程序设计与算法（三）C++面向对象程序设计](https://www.icourse163.org/course/PKU-1002029030?tid=1463187446)
+
+### :bookmark: [源码目录](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/OOP_C++)
 

@@ -13,8 +13,8 @@
 
 ### :pencil2: [C/C++](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/CCppLearning.md)
 
-* :man_teacher: [C 语言程序设计进阶]()
-* :man_teacher: [C++ 面向对象程序设计]()
+* :man_teacher: [C 语言程序设计进阶](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/C语言程序设计进阶/README.md)
+* :man_teacher: [C++ 面向对象程序设计](https://github.com/HaihuaHaihua/TechStack/blob/master/CCppLearning/OOP_C++/README.md)
 
 ### :computer: [Linux](https://github.com/HaihuaHaihua/TechStack/blob/master/LinuxLearning/LinuxLearning.md)
 
