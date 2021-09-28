@@ -24,7 +24,7 @@
 
 ### :thinking: [数据结构与算法](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/ALGLearning.md)
 
-* :man_teacher: [算法基础](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/Algorithm Analysis and Design/README.md)
+* :man_teacher: [算法基础](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/AlgorithmAnalysisAndDesign/README.md)
 * :bookmark_tabs: [LeetCode 刷题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/README.md)
 
 ### :rice: [计算机基础](https://github.com/HaihuaHaihua/TechStack/blob/master/ComputerBasics/ComputerBasics.md)
