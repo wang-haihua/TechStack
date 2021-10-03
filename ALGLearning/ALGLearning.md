@@ -36,9 +36,20 @@
 
 * ​	[01 一维动态规划](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/DP/01一维动态规划.md)
 * ​	[02 二维动态规划](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/DP/02二维动态规划.md)
-* ​	[03 03分割型动态规划](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/DP/03分割型动态规划.md)
+* ​	[03 分割型动态规划](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/DP/03分割型动态规划.md)
 * ​	[04 子序列问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/DP/04子序列问题.md)
 * ​	[05 背包问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/DP/05背包问题.md)
 * ​	[06 字符串编辑问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/DP/06字符串编辑问题.md)
 * ​	[07 股票交易问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/DP/07股票交易问题.md)
+
+#### - [数学问题](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP) 
+
+* 	​	[01 公倍数与公因数](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP/01公倍数与公因数.md)
+* 	​	[02 质数问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP/02质数问题.md)
+* 	​	[03 进制转换问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP/03进制转换问题.md)
+* 	​	[04 数字字符串求和问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP/04数字字符串求和问题.md)
+* 	​	[05 众数问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP/05众数问题.md)
+* 	​	[06 中位数问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP/06中位数问题.md)
+* 	​	[07 数字处理问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP/07数字处理问题.md)
+* 	​	[08 随机数问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP/08随机数问题.md)
 
