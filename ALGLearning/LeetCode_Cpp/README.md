@@ -34,6 +34,11 @@
 * ​	[07 数字处理问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP/07数字处理问题.md)
 * ​	[08 随机数问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP/08随机数问题.md)
 
+#### - [位运算](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BitOp) 
+
+* ​	[01 位运算基础](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BitOp/01位运算基础.md)
+* ​	[02 二进制特性](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BitOp/02二进制特性.md)
+
 
 
 ### :mag_right: [参考资料]()
