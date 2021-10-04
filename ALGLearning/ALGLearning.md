@@ -55,6 +55,7 @@
 
 #### - [位运算](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BitOp) 
 
-* 	​    [01 位运算基础](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BitOp/01位运算基础.md)
-* 	​    [02 二进制特性](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BitOp/02二进制特性.md)
+* ​	[01 位运算基础](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BitOp/01位运算基础.md)
+* ​	[02 妙用异或运算](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BitOp/02妙用异或运算.md)
+* ​	[03 二进制特性](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BitOp/02二进制特性.md)
 
