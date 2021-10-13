@@ -75,7 +75,7 @@
 #### - [字符串](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Str) 
 
 * ​	[01 字符串比较](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Str/01字符串比较.md)
-* ​	[02 回文字符串](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/STL/02回文字符串.md)
-* ​	[03 字符串匹配](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP/STL/03字符串匹配.md)
-* ​	[04 字符串算术表达式](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/STL/04字符串算术表达式.md)
+* ​	[02 回文字符串](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Str/02回文字符串.md)
+* ​	[03 字符串匹配](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/MathP/Str/03字符串匹配.md)
+* ​	[04 字符串算术表达式](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Str/04字符串算术表达式.md)
 
