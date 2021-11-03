@@ -52,6 +52,14 @@
 * ​	[03 前中后序遍历](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree/03前中后序遍历.md)
 * ​	[04 二叉搜索树](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree/04二叉查找树.md)
 
+#### - [图](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Graph)
+
+* ​	[01 二分图](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Graph/01二分图.md)
+* ​	[02 拓扑排序](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Graph/02拓扑排序.md)
+* ​	[03 最短路径](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Graph/)
+* ​	[04 最小生成树](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Graph/)
+* ​	[05 最大流](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Graph/)
+
 ### 第三部分 进阶算法
 
 #### - [贪心算法](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
@@ -69,6 +77,8 @@
 * ​	[07 股票交易问题](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/DP/07股票交易问题.md)
 
 ### 第四部分 进阶数据结构
+
+#### - [并查集](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
 
 #### - [红黑树](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
 
