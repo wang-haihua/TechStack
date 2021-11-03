@@ -2,7 +2,7 @@
 
 * ​	[写份好简历](https://github.com/HaihuaHaihua/TechStack/blob/master/CareerPlan/Interview/写好简历.md)
 * ​	[C++ 相关面经](https://github.com/HaihuaHaihua/TechStack/blob/master/CareerPlan/Interview/C++面经.md)
-* ​	[非技术开发题面试技巧](https://github.com/HaihuaHaihua/TechStack/blob/master/CareerPlan/Interview/非技术开发题面试技巧.md)
+* ​	[非技术开放题面试技巧](https://github.com/HaihuaHaihua/TechStack/blob/master/CareerPlan/Interview/非技术开放题面试技巧.md)
 
 ### :mag_right: [参考资料]()
 
