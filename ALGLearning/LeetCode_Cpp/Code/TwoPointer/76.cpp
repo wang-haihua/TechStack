@@ -2,6 +2,7 @@
 #include<vector>
 #include<algorithm>
 #include<string>
+#include<unordered_map>
 
 using namespace std;
 
@@ -108,10 +109,53 @@ string minWindow(string s, string t){
     
 }
 
+class Solution {
+public:
+    string minWindow(string s, string t) {
+        unordered_map<char, int> hash;
+        for(const char ch: t){
+            if(hash.find(ch)!=hash.end()){
+                ++hash[ch];
+            }else{
+                hash[ch] = 1;
+            }
+        }
+
+        int cnt = 0;
+        int l = 0, r = 0;
+        int min_l = l, min_size = s.size()+1;
+        for(r = 0;r<s.size();++r){
+            if(hash.find(s[r]) != hash.end()){
+                // 判断 t 中重复出现的字符
+                if(--hash[s[r]] >= 0){
+                    ++cnt;
+                }
+
+                // 当前滑动窗口[l,r]覆盖了 T，即 cnt == T.size()
+                while(cnt == t.size()){
+                    // 如果出现更短的覆盖子串，更新最短覆盖子串的起始位置和长度
+                    int cur_size = r-l+1;
+                    if(cur_size < min_size){
+                        min_l = l;
+                        min_size = cur_size;
+                    }
+                    // 左边界移动过程中如果遍历到了 T 中的字符，当前覆盖字符数减少，当前遍历的字符容量增加
+                    if(hash.find(s[l]) != hash.end() && ++hash[s[l]] > 0){
+                        --cnt;
+                    }
+                    ++l;
+                }
+            }
+        }
+        return min_size > s.size()?"":s.substr(min_l,min_size);
+    }
+};
+
 int main(){
     string s = "cabwefgewcwaefgcf";
     string t = "cae";
-    string ans = minWindow(s,t);
+    // string ans = minWindow(s,t);
+    string ans = Solution().minWindow(s,t);
     cout<<ans<<endl;
     return 0;
 }
