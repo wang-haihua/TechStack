@@ -11,6 +11,10 @@
 
 ####   - [二分查找](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
 
+* ​	[01 基础应用](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BinSerach/01基础应用.md)
+* ​	[02 边界收缩](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BinSerach/02边界收缩.md)
+* ​	[03 局部有序](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BinSerach/03局部有序.md)
+
 ####   - [排序](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
 
 #### - [递归](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
