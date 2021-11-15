@@ -30,6 +30,10 @@
 
 ####   - [二分查找](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
 
+* 	​    [01 基础应用](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BinSerach/01基础应用.md)
+* 	​    [02 边界收缩](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BinSerach/02边界收缩.md)
+* 	​    [03 局部有序](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/BinSerach/03局部有序.md)
+
 ####   - [排序](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
 
 #### - [递归](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
@@ -66,10 +70,12 @@
 
 #### - [二叉树](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree)
 
-* ​	[01 树的递归](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree/01树的递归.md)
-* ​	[02 层次遍历](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree/02层次遍历.md)
-* ​	[03 前中后序遍历](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree/03前中后序遍历.md)
-* ​	[04 二叉搜索树](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree/04二叉查找树.md)
+* 	​    [01 二叉树的属性](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree/01二叉树的属性.md)
+* 	​    [02 二叉树的操作](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree/02二叉树的操作.md)
+* 	​    [03 层次遍历](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree/02层次遍历.md)
+* 	​    [04 前中后序遍历](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree/03前中后序遍历.md)
+* 	​    [05 二叉搜索树的属性](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree/05二叉搜索树的属性.md)
+* 	​    [06 二叉搜索树的操作](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Tree/06二叉搜索树的操作.md)
 
 #### - [图](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Graph)
 
