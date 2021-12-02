@@ -1,6 +1,8 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<queue>
+#include<map>
 
 using namespace std;
 
@@ -110,6 +112,28 @@ void quick_sort(vector<int> &nums, int start, int end){
     quick_sort(nums,q+1,end);
 }
 
+void quickSortTwoPointer(vector<int> &nums, int l, int r){
+    if (l + 1 >= r) {
+        return;
+    }
+        
+    int cur = l;
+    int pre = cur - 1;
+    int key = nums[r-1];
+        
+    while (cur < r) {
+        while (nums[cur] < key && ++pre != cur) {
+            swap(nums[cur], nums[pre]);
+        }
+        cur++;
+    }   
+    swap(nums[++pre], nums[r-1]);
+        
+    quickSortTwoPointer(nums, l, pre);
+    quickSortTwoPointer(nums, pre + 1, r);
+
+}
+
 void merge_sort(vector<int> &nums, int start, int end, vector<int> tmp){
     if(start+1>=end){
         return;
@@ -130,13 +154,87 @@ void merge_sort(vector<int> &nums, int start, int end, vector<int> tmp){
     }
 }
 
+void radixSort(vector<int> &nums){
+    int maxOne = *max_element(nums.begin(),nums.end());
+    int bit = 1;
+    while(maxOne>=10){
+        maxOne /= 10;
+        ++bit;
+    }
+    vector<queue<int>> buckets(10);
+    for(int m=0;m<bit;++m){
+        for(int i=0;i<nums.size();++i){
+            int tmp = nums[i];
+            for(int j=0;j<m;++j){
+                tmp/=10;
+            }
+            buckets[tmp%10].push(nums[i]);
+        }
+        nums.clear();
+        for(int i=0;i<10;++i){
+            while(!buckets[i].empty()){
+                nums.push_back(buckets[i].front());
+                buckets[i].pop();
+            }
+        }
+    }
+
+}
+
+void shellSort(vector<int> &nums){
+    int length = nums.size();
+    int tmp;
+    //步长
+    int gap = length / 2;
+    while (gap > 0) {
+        for (int i = gap; i < length; i++) {
+            tmp = nums[i];
+            int preIndex = i - gap;
+            while (preIndex >= 0 && nums[preIndex] > tmp) {
+                nums[preIndex + gap] = nums[preIndex];
+                preIndex -= gap;
+            }
+            nums[preIndex + gap] = tmp;
+        }
+        gap /= 2;
+    }
+}
+
+void countSort(vector<int>& nums) {
+    map<int,int> buckets;
+    // 统计每个数出现的次数
+    for(int i = 0; i < nums.size(); ++i){
+        if(buckets.count(nums[i])){
+            buckets[nums[i]]++;
+        }else{
+            buckets.insert(make_pair(nums[i],1));
+        }
+    }
+    // 写回数组
+    int index = 0;
+    for(const auto bucket:buckets){
+        int count = bucket.second;
+        while(count){
+            nums[index++] = bucket.first;
+            count--;
+        }
+    }   
+}
+
+
 int main(){
     vector<int> arr{5,3,6,8,1,2,7,4};
+    vector<int> arrodd{29,10,14,37,14,25,10};
     // selectSort(arr);
     // insertSrot(arr);
     // bubbleSort(arr);
     // quickSort(arr,0,arr.size());
-    vector<int> tmp(8,0);
-    mergeSort(arr,0,arr.size(),tmp);
+    quickSortTwoPointer(arr,0,arr.size());
+    // vector<int> tmp(8,0);
+    // mergeSort(arr,0,arr.size(),tmp);
+    vector<int> test(arrodd);
+    // shellSort(test);
+    // radixSort(arr);
+    // countSort(arr);
     return 0;
 }
