@@ -22,9 +22,9 @@
 * ​	[03 归并排序](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Sort/03归并排序.md)
 * ​	[04 桶排序](https://github.com/HaihuaHaihua/TechStack/blob/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/Sort/04桶排序.md)
 
-#### - [回溯算法](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
+#### - [优先搜索](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
 
-####   - [优先搜索](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
+####   - [回溯算法](https://github.com/HaihuaHaihua/TechStack/tree/master/ALGLearning/LeetCode_Cpp/LeetCodeNote/) 
 
 ### 第二部分 基础数据结构
 
