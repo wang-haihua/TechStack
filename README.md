@@ -2,6 +2,8 @@
 
 ![](https://img.shields.io/github/stars/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/watchers/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/forks/HaihuaHaihua/TechnicalRoute?style=social) ![](https://img.shields.io/github/repo-size/HaihuaHaihua/TechnicalRoute?color=green) [![知识共享协议（CC协议）](https://img.shields.io/badge/License-Creative%20Commons-DC3D24.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) ![](https://img.shields.io/badge/Author-QingHuan-blue)
 
+:rocket::rocket::rocket: **本仓库内容已迁移至 Github Page：**[https://wang-haihua.github.io/](https://wang-haihua.github.io/) :rocket::rocket::rocket:
+
 ​    本仓库主要内容是关于后端架构技术的学习笔记，包含C/C++编程语言、Linux操作系统、数据结构与算法、操作系统和计算机网络等计算机基础内容，也涉及部分容器、监控运维、中间件等分布式相关内容。
 
 ​    由于本人资历尚浅、水平有限，对很多知识的理解还不到位，所以在撰写时可能会有不少纰漏，存在内容描述不详细或者不清楚的情况。欢迎提 issue 指正，感谢您！！！
@@ -37,9 +39,3 @@
 * :man_teacher: [Redis 入门实践](https://github.com/HaihuaHaihua/TechStack/blob/master/DistributedArchitect/Redis/README.md)
 
 ### :film_projector:  [项目实践]()
-
-### :construction_worker: [求职指南](https://github.com/HaihuaHaihua/TechStack/blob/master/CareerPlan/CareerPlan.m)
-
-* :rocket: [后端架构师技术图谱](https://github.com/HaihuaHaihua/TechStack/blob/master/CareerPlan/Profession/后端架构师技术图谱.md)
-* :car: [招聘岗位]() 
-* :walking: [面试经验](https://github.com/HaihuaHaihua/TechStack/blob/master/CareerPlan/Interview/README.md)
